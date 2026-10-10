@@ -1,0 +1,17 @@
+{
+  "name": "greencart-ecommerce",
+  "version": "1.0.0",
+  "description": "GreenCart - a full-stack sustainable shopping demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "express": "^4.21.2"
+  },
+  "allowScripts": {
+    "better-sqlite3@13.0.3": true
+  }
+}

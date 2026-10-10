@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#174b38" />
+  <title>GreenCart — Better choices, lighter footprint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement">Small choices. Big impact. 🌱 Free delivery on orders over ₹999</div>
+  <header class="site-header">
+    <a class="brand" href="#"><span class="brand-icon">✳</span> green<span>cart</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#shop">Shop all</a><a href="#why">Our mission</a><a href="#footer">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="searchFocus" aria-label="Focus search">⌕</button>
+      <button class="cart-button" id="cartOpen" aria-label="Open cart">Bag <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> CONSCIOUS LIVING, MADE SIMPLE</div>
+        <h1>Good for you.<br><em>Gentler on Earth.</em></h1>
+        <p>Thoughtfully chosen everyday essentials that make sustainable living feel easy, beautiful, and within reach.</p>
+        <a class="primary-btn" href="#shop">Explore the collection <span>↗</span></a>
+        <div class="hero-proof"><div class="avatar-stack"><span>🌿</span><span>♻️</span><span>☀️</span></div><div><strong>Little swaps, lasting change</strong><small>Discover your next everyday essential</small></div></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-image"></div>
+        <div class="floating-note"><span class="note-icon">♻</span><div><strong>Reuse more.</strong><small>Waste a little less.</small></div></div>
+        <div class="hero-stamp">LIVE<br>LIGHTLY<br><span>✳</span></div>
+      </div>
+    </section>
+
+    <section class="benefits" id="why">
+      <div><span class="benefit-icon">♧</span><span><strong>Mindful materials</strong><small>Chosen with care</small></span></div>
+      <div><span class="benefit-icon">↻</span><span><strong>Reusable by design</strong><small>Made for everyday life</small></span></div>
+      <div><span class="benefit-icon">♡</span><span><strong>Small-batch finds</strong><small>Less, but better</small></span></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE EVERYDAY EDIT</div><h2>Find your feel-good <em>favourite.</em></h2></div>
+        <p>Practical little changes, thoughtfully picked for your home and routine.</p>
+      </div>
+      <div class="shop-controls">
+        <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search everyday essentials..." aria-label="Search products"></div>
+        <div class="category-filters" id="categoryFilters"><button class="filter-chip active" data-category="All">All products</button></div>
+      </div>
+      <div id="productGrid" class="product-grid"><div class="loading">Growing something good...</div></div>
+      <p class="empty-state hidden" id="emptyState">No products found. Try another search or category.</p>
+    </section>
+
+    <section class="mission-banner">
+      <div class="mission-symbol">✳</div>
+      <div><div class="eyebrow">A SMALLER FOOTPRINT STARTS HERE</div><h2>Better habits begin<br>with <em>one small swap.</em></h2></div>
+      <a class="secondary-btn" href="#shop">Shop mindfully ↗</a>
+      <div class="banner-leaf leaf-one">❧</div><div class="banner-leaf leaf-two">❧</div>
+    </section>
+  </main>
+
+  <footer id="footer"><a class="brand footer-brand" href="#"><span class="brand-icon">✳</span> green<span>cart</span></a><p>Thoughtful everyday goods for a lighter-living lifestyle.</p><small>© 2026 GreenCart Demo · Built for a student project</small></footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head"><div><span class="eyebrow">YOUR BAG</span><h2>Good things inside <span>🌱</span></h2></div><button class="close-btn" id="cartClose" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-bottom"><div class="subtotal"><span>Subtotal</span><strong id="cartTotal">₹0</strong></div><small>Delivery calculated at checkout. Demo only — no payment is collected.</small><button class="primary-btn checkout-btn" id="checkoutOpen">Continue to checkout <span>→</span></button></div>
+  </aside>
+
+  <section class="modal hidden" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <button class="close-btn modal-close" id="checkoutClose" aria-label="Close checkout">×</button>
+    <div class="eyebrow">ALMOST YOURS</div><h2 id="checkoutTitle">Checkout <em>mindfully.</em></h2>
+    <p class="modal-intro">Enter your delivery details to place a demo order.</p>
+    <form id="checkoutForm">
+      <label>Full name<input name="customerName" required minlength="2" placeholder="Your name"></label>
+      <label>Email address<input name="email" type="email" required placeholder="you@example.com"></label>
+      <label>Delivery address<textarea name="address" required minlength="8" rows="3" placeholder="House number, street, city, PIN code"></textarea></label>
+      <div class="checkout-total"><span>Order total</span><strong id="checkoutTotal">₹0</strong></div>
+      <button class="primary-btn checkout-btn" type="submit" id="placeOrder">Place demo order <span>→</span></button>
+      <p class="form-note">This demo does not collect payment information.</p>
+    </form>
+    <div id="orderSuccess" class="success-panel hidden"></div>
+  </section>
+
+  <section class="admin-modal hidden" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+    <button class="close-btn modal-close" id="adminClose" aria-label="Close admin">×</button>
+    <div class="eyebrow">STORE MANAGEMENT</div><h2 id="adminTitle">Order <em>dashboard.</em></h2>
+    <p class="modal-intro">Student demo admin view. This endpoint is intentionally unauthenticated; add authentication before real deployment.</p>
+    <div id="adminOrders"></div>
+  </section>
+  <button class="admin-shortcut" id="adminOpen" title="Open demo order dashboard">Admin ↗</button>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
